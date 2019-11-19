@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "752966796889",
+    "firebase_url": "https://bani-app-a17d8.firebaseio.com",
+    "project_id": "bani-app-a17d8",
+    "storage_bucket": "bani-app-a17d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752966796889:android:f98e6c8f63ddcd79dc9348",
+        "android_client_info": {
+          "package_name": "com.diegor.bani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752966796889-pcha9cspe39f9410cdi7u33u8oh8i2e6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diegor.bani",
+            "certificate_hash": "83093990495208adac40db0f9f0561bc0c010cc9"
+          }
+        },
+        {
+          "client_id": "752966796889-qe01qpta5d9d1jci7a1bmqgl69bj6bf5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcpsUV4PEhyENrz9c76mh8YbIOkWlDTwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752966796889-qe01qpta5d9d1jci7a1bmqgl69bj6bf5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
