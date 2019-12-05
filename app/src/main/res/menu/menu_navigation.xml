@@ -4,26 +4,23 @@
         android:checkableBehavior="single"
         android:id="@+id/main_menu">
         <item
-            android:id="@+id/payment"
+            android:id="@+id/home"
             android:title="Home"
-            android:icon="@drawable/ic_android_black_24dp"/>
+            android:icon="@drawable/home"/>
         <item
-            android:id="@+id/trip"
-            android:title="Ship"
-            android:icon="@drawable/ic_build_black_24dp"/>
-        <item
-            android:id="@+id/freebie"
-            android:title="Free Rides"
-            android:icon="@drawable/ic_forward_black_24dp"/>
+            android:id="@+id/producten"
+            android:title="Producten"
+            android:icon="@drawable/basket"/>
 
         <item
-            android:id="@+id/tips"
-            android:title="Help"
-            android:icon="@drawable/ic_forward_black_24dp"/>
+            android:id="@+id/profiel"
+            android:title="Profiel"
+            android:icon="@drawable/account_circle"/>
+
         <item
-            android:id="@+id/logout"
-            android:title="Logout"
-            android:icon="@drawable/ic_invert_colors_black_24dp"/>
+            android:id="@+id/winkelwagen"
+            android:icon="@drawable/cart_generic"
+            android:title="Winkelwagen"></item>
     </group>
 
     <group
@@ -31,9 +28,8 @@
         android:checkableBehavior="none">
 
         <item
-            android:id="@+id/drawer_item_settings"
-            android:icon="@drawable/ic_invert_colors_black_24dp"
-            android:title="Legal" >
-        </item>
+            android:id="@+id/logout"
+            android:title="Uitloggen"
+            android:icon="@drawable/logout"/>
     </group>
 </menu>
