@@ -37,6 +37,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -76,12 +77,40 @@ public class NavDrawerActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer);
-        //drawerToggle = setupDrawerToggle();
 
         nvDrawer = (NavigationView) findViewById(R.id.navigation_view);
 
+        View header = nvDrawer.getHeaderView(0);
+
+        mFullNameTextView = (TextView) header.findViewById(R.id.fullName);
+        mEmailTextView = (TextView) header.findViewById(R.id.email);
+        mProfileImageView = (CircleImageView) header.findViewById(R.id.profileImage);
+
+        sharedPrefManager = new SharedPrefManager(mContext);
+        mUsername = sharedPrefManager.getName();
+        mEmail = sharedPrefManager.getUserEmail();
+        String uri = sharedPrefManager.getPhoto();
+        Uri mPhotoUri = Uri.parse(uri);
+
+        mFullNameTextView.setText(mUsername);
+        mEmailTextView.setText(mEmail);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.flContent, new HomeFragment());
+        transaction.commit();
+
+        Picasso.with(mContext)
+                .load(mPhotoUri)
+                .placeholder(android.R.drawable.sym_def_app_icon)
+                .error(android.R.drawable.sym_def_app_icon)
+                .into(mProfileImageView);
+
+        configureSignIn();
+
         setupDrawerContent(nvDrawer);
     }
+
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -101,7 +130,7 @@ public class NavDrawerActivity extends AppCompatActivity implements
     }
 
     public void selectDrawerItem(MenuItem item) {
-        Fragment fragment = new HomeFragment();
+        Fragment fragment = null;
         switch (item.getItemId()) {
             case R.id.home:
                 fragment = new HomeFragment();
@@ -140,6 +169,7 @@ public class NavDrawerActivity extends AppCompatActivity implements
 
         return super.onOptionsItemSelected(item);
     }
+
 
     public void configureSignIn(){
 // Configure sign-in to request the user's basic profile like name and email
