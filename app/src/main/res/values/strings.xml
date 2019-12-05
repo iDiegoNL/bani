@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Firebase Authentication</string>
+    <string name="app_name">Bani</string>
     <string name="loading">Loading…</string>
     <string name="log_error_occurred">"Error occurred: "</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="home">Home</string>
 
     <string name="web_client_id">752966796889-qe01qpta5d9d1jci7a1bmqgl69bj6bf5.apps.googleusercontent.com</string>
 </resources>
