@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.diegor.bani.contact.ContactFragment;
 import com.diegor.bani.utils.SharedPrefManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -134,6 +135,9 @@ public class NavDrawerActivity extends AppCompatActivity implements
         switch (item.getItemId()) {
             case R.id.home:
                 fragment = new HomeFragment();
+                break;
+            case R.id.contact:
+                fragment = new ContactFragment();
                 break;
             case R.id.producten:
                 fragment = new ProductenFragment();

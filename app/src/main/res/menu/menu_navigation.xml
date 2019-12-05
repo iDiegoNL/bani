@@ -18,6 +18,11 @@
             android:icon="@drawable/account_circle"/>
 
         <item
+            android:id="@+id/contact"
+            android:title="Contact"
+            android:icon="@drawable/contact"></item>
+
+        <item
             android:id="@+id/winkelwagen"
             android:icon="@drawable/cart_generic"
             android:title="Winkelwagen"></item>
