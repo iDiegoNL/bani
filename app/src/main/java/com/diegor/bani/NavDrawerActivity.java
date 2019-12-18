@@ -1,15 +1,21 @@
 package com.diegor.bani;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.telephony.TelephonyManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -51,16 +57,17 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavDrawerActivity extends AppCompatActivity implements
-        GoogleApiClient.OnConnectionFailedListener{
+        GoogleApiClient.OnConnectionFailedListener {
 
-    Context mContext = this;
+    public Context mContext = this;
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     private TextView mFullNameTextView, mEmailTextView;
-    private CircleImageView mProfileImageView;
+    public CircleImageView mProfileImageView;
     private String mUsername, mEmail;
+    private String uri;
 
     SharedPrefManager sharedPrefManager;
     private GoogleApiClient mGoogleApiClient;
@@ -90,7 +97,7 @@ public class NavDrawerActivity extends AppCompatActivity implements
         sharedPrefManager = new SharedPrefManager(mContext);
         mUsername = sharedPrefManager.getName();
         mEmail = sharedPrefManager.getUserEmail();
-        String uri = sharedPrefManager.getPhoto();
+        uri = sharedPrefManager.getPhoto();
         Uri mPhotoUri = Uri.parse(uri);
 
         mFullNameTextView.setText(mUsername);
@@ -131,6 +138,7 @@ public class NavDrawerActivity extends AppCompatActivity implements
     }
 
     public void selectDrawerItem(MenuItem item) {
+
         Fragment fragment = null;
         switch (item.getItemId()) {
             case R.id.home:
@@ -149,7 +157,12 @@ public class NavDrawerActivity extends AppCompatActivity implements
                 signOut();
                 break;
             case R.id.profiel:
+                Bundle bundle = new Bundle();
+                bundle.putString("name", mUsername);
+                bundle.putString("mail", mEmail);
+                bundle.putString("photo", uri);
                 fragment = new ProfielFragment();
+                fragment.setArguments(bundle);
                 break;
             default:
                 fragment = new HomeFragment();
