@@ -75,7 +75,7 @@ public class ProfielFragment extends Fragment {
         final String mail = getArguments().getString("mail");
         String image = getArguments().getString("photo");
 
-        final DatabaseReference usersRef = ref.child("users").child("users/" + mail.replace('.', ','));
+        final DatabaseReference usersReadRef = ref.child("users").child("users/" + mail.replace('.', ','));
 
         View view = inflater.inflate(R.layout.profiel_fragment, container, false);
         View navView = inflater.inflate(R.layout.nav_header, container, false);
@@ -102,7 +102,7 @@ public class ProfielFragment extends Fragment {
                 Log.w(TAG, "loadUser:onCancelled", databaseError.toException());
             }
         };
-        usersRef.addValueEventListener(userListener);
+        usersReadRef.addValueEventListener(userListener);
 
         Context c = getActivity().getApplicationContext();
 
@@ -124,6 +124,8 @@ public class ProfielFragment extends Fragment {
         Button updater = (Button) view.findViewById(R.id.wijzigButton);
         updater.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                final DatabaseReference usersRef = ref.child("users").child("users");
+
                 mName = name;
                 mAdres = adresView.getText().toString();
                 mMail = mail.replace('.', ',');
