@@ -59,18 +59,11 @@
 
             <EditText
                 android:id="@+id/adres"
-                android:layout_width="267dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Adres" />
-
-            <Button
-                android:id="@+id/veranderAdres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wijzig"
-                android:onClick="adresWijzigen"/>
+                />
 
         </LinearLayout>
 
@@ -85,20 +78,13 @@
             tools:context="com.diegor.bani.BaseActivity">
 
 
-            <EditText
+            <TextView
                 android:id="@+id/mail"
-                android:layout_width="267dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="e-mail" />
-
-            <Button
-                android:id="@+id/veranderMail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wijzig"
-                android:onClick="mailWijzigen"/>
 
         </LinearLayout>
 
@@ -115,20 +101,19 @@
 
             <EditText
                 android:id="@+id/tel"
-                android:layout_width="267dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Telefoon nummer" />
-
-            <Button
-                android:id="@+id/veranderTel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wijzig"
-                android:onClick="telefoonWijzigen"/>
+                />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/wijzigButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wijzig" />
 
     </LinearLayout>
 
