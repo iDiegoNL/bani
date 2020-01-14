@@ -22,6 +22,30 @@ public class SharedPrefManager {
         editor = sharedPreferences.edit();
     }
 
+    public void addProductToTheCart(String product){
+        SharedPreferences.Editor edits = sharedPreferences.edit();
+        edits.putString(Constants.PRODUCT_ID, product);
+        edits.apply();
+    }
+
+    public String retrieveProductsFromCart(){
+        return sharedPreferences.getString(Constants.PRODUCT_ID, "");
+    }
+
+    public void addProductCount(int productCount){
+        SharedPreferences.Editor edits = sharedPreferences.edit();
+        edits.putInt(Constants.PRODUCT_COUNT, productCount);
+        edits.apply();
+    }
+
+    public void removeProduct(){
+        SharedPreferences.Editor edits = sharedPreferences.edit();
+        edits.remove(Constants.PRODUCT_COUNT);
+        edits.remove(Constants.PRODUCT_ID);
+        edits.apply();
+    }
+
+    public int retrieveProductCount(){ return sharedPreferences.getInt(Constants.PRODUCT_COUNT, 0); }
 
     public void saveIsLoggedIn(Context context, Boolean isLoggedIn){
         mContext = context;
