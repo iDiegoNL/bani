@@ -29,16 +29,16 @@
         <Button
             android:id="@+id/aardappelen"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_weight="1"
-            android:text="Aardappelen   €1,90" />
+            android:background="@drawable/appelaard" />
 
         <Button
             android:id="@+id/bloemkool"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_weight="1"
-            android:text="Bloemkool    €1,55" />
+            android:background="@drawable/koolbloem" />
     </LinearLayout>
 
     </LinearLayout>
