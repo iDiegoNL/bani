@@ -177,6 +177,18 @@ public class NavDrawerActivity extends AppCompatActivity implements
         mDrawer.closeDrawers();
     }
 
+    public void replaceFragments(Class fragmentclass){
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment) fragmentclass.newInstance();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case android.R.id.home:
