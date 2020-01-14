@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.diegor.bani.R;
 import com.diegor.bani.model.Product;
@@ -54,7 +55,7 @@ public class GnFArtikelenFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        Context c = getActivity().getApplicationContext();
+        final Context c = getActivity().getApplicationContext();
         sharedPrefManager = new SharedPrefManager(c);
         mMail = sharedPrefManager.getUserEmail();
 
@@ -84,6 +85,7 @@ public class GnFArtikelenFragment extends Fragment {
                     sharedPrefManager.addProductToTheCart(addAndStoreProduct);
                     cartProductNumber = allNewProduct.size();
                 }
+                Toast.makeText(c, "Product is toegevoegd aan de winkelwagen", Toast.LENGTH_SHORT).show();
                 sharedPrefManager.addProductCount(cartProductNumber);
                 invalidateCart();
            }
@@ -108,6 +110,7 @@ public class GnFArtikelenFragment extends Fragment {
                     sharedPrefManager.addProductToTheCart(addAndStoreProduct);
                     cartProductNumber = allNewProduct.size();
                 }
+                Toast.makeText(c, "Product is toegevoegd aan de winkelwagen", Toast.LENGTH_SHORT).show();
                 sharedPrefManager.addProductCount(cartProductNumber);
                 invalidateCart();
             }
